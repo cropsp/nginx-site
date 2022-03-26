@@ -1,8 +1,8 @@
 # static-site
 Static HTML site for Docker nginx
 
-Status ofLast Deployment:<br>
-<img scr="https://github.com/cropsp/nginx-site/workflows/nginx-site-CI/badge.svg?branch=master"><br>
+Status of Last Deployment:<br>
+<img src="https://github.com/cropsp/nginx-site/workflows/nginx-site-CI/badge.svg?branch=master"><br>
 
 ## How to Run this inside Docker?
 * One Dockerfile for Docker build
