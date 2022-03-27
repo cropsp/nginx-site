@@ -58,6 +58,7 @@ jobs:
           username: ubuntu
           key: ${{secrets.ACTION_PRIVATE_KEY}}
           script: |
+            docker rmi cropsp/$REPO
             docker pull cropsp/$REPO
             docker stop nginx-site
             docker run -d -p 80:80 --rm --name nginx-site cropsp/nginx-site
