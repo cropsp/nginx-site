@@ -1,6 +1,6 @@
 # This is my first workflow on Actions
 
-name: nginx-site-CI/CD
+name: nginx-site-CICD
 
 # Controls when the workflow will run
 on:
