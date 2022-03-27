@@ -19,7 +19,7 @@ jobs:
       - name: Connect via SSH
         env: 
             REPO: nginx-site
-        uses: apleboy/ssh-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: 3.82.69.76
           username: ubuntu
