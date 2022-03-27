@@ -50,15 +50,15 @@ jobs:
 
       # Docker Pull and Run from Hub
       - name: Connect via SSH
-        env: 
-            REPO: nginx-site
+  #      env: 
+  #          REPO: nginx-site
         uses: appleboy/ssh-action@master
         with:
           host: 3.82.69.76
           username: ubuntu
           key: ${{secrets.ACTION_PRIVATE_KEY}}
           script: |
-            docker rmi cropsp/$REPO
-            docker pull cropsp/$REPO
+            docker rmi cropsp/nginx-site
+            docker pull cropsp/nginx-site
             docker stop nginx-site
             docker run -d -p 80:80 --rm --name nginx-site cropsp/nginx-site
