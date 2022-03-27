@@ -1,0 +1,30 @@
+# This is a workflow makes connect via SSH to AWS EC2 and Pull Docker images and run
+
+name: nginx-site-CD
+
+on:
+  push:
+    branches: [ master ]
+    
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      # Docker Pull and Run from Hub
+      - name: Connect via SSH
+        env: 
+            REPO: nginx-site
+        uses: apleboy/ssh-action@master
+        with:
+          host: 3.82.69.76
+          username: ubuntu
+          key: ${{secrets.ACTION_PRIVATE_KEY}}
+          script: |
+            docker pull cropsp/$REPO
+            docker stop nginx-site
+            docker run -d -p 80:80 --rm --name nginx-site cropsp/nginx-site
